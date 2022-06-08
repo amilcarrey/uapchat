@@ -9,7 +9,7 @@ COPY . .
 
 RUN yarn build
 
-FROM ngnix:stable as production
+FROM nginx as production
 COPY --from=builder /app/dist /usr/share/ngnx/html
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
